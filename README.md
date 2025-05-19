@@ -11,13 +11,6 @@ This portfolio is built with HTML, CSS, and JavaScript and deployed using GitHub
 You can view the live portfolio here:  
 https://JahnaviYelishala1.github.io/portfolio/
 
-## How to Run Locally
-
-1. Clone the repository:
-   \`\`\`bash
-    https://jahnaviyelishala1.github.io/portfolio/
-   \`\`\`
-2. Open \`index.html\` in your favorite browser.
 
 ## Technologies Used
 
@@ -27,8 +20,6 @@ https://JahnaviYelishala1.github.io/portfolio/
 
 ## Contact
 
-Feel free to reach out to me via [your-email@example.com] or connect on [LinkedIn](https://www.linkedin.com/in/your-profile).
+Feel free to reach out to me via [231210128@nitdelhi.ac.in] or connect on [LinkedIn](https://www.linkedin.com/in/jahnavi-yelishala-3121b9325/).
 
----
 
-*Thank you for visiting my portfolio!*" > README.md
