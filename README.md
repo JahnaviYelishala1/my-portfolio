@@ -9,7 +9,7 @@ This portfolio is built with HTML, CSS, and JavaScript and deployed using GitHub
 ## Live Demo
 
 You can view the live portfolio here:  
-https://JahnaviYelishala1.github.io/portfolio/
+https://jahnaviyelishala1.github.io/my-portfolio/
 
 
 ## Technologies Used
