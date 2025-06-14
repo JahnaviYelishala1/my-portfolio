@@ -64,22 +64,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 const accordionItems = document.querySelectorAll(".resume-item");
 
 accordionItems.forEach((item) => {
-  const header = item.querySelector('.resume-header'); // Corrected: querySelector (not querySelectorAll)
+  const header = item.querySelector('.resume-header'); 
   const content = item.querySelector('.resume-content');
   const icon = item.querySelector('.resume-icon i');
 
   header.addEventListener('click', () => {
     const isOpen = item.classList.toggle('accordion-open');
 
-    // Toggle current item
     content.style.height = isOpen ? content.scrollHeight + 'px' : '0';
     icon.className = isOpen ? 'ri-subtract-line' : 'ri-add-line';
 
-    // Close other open items
     accordionItems.forEach((otherItem) => {
       if (otherItem !== item && otherItem.classList.contains('accordion-open')) {
         otherItem.querySelector('.resume-content').style.height = '0';
@@ -92,48 +89,47 @@ accordionItems.forEach((item) => {
 
 
 const contactForm = document.getElementById('contact-form');
-contactName = document.getElementById('contact-name');
-contactEmail = document.getElementById('contact-email');
-contactSubject = document.getAnimations('contact-subject');
-contactMessage = document.getElementById('contact-message');
-message = document.getElementById('message');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactSubject = document.getElementById('contact-subject');
+const contactMessage = document.getElementById('contact-message');
+const message = document.getElementById('message');
 
 const sendEmail = (e) => {
   e.preventDefault();
-  if(contactName.value==='' || contactEmail.value==='' || contactSubject.value==='' ||
-    contactMessage.value==='') {
-      message.classList.remove('color-first');
-      message.classList.add('color-red');
-      message.textContent='Write all the input fields';
-      setTimeout(() => {
-        message.textContent='';
-      }, 3000);
-    }
-    else {
-      emailjs.sendForm('service_9ywvz2h',
-         'template_g6x1l3p', 
-         '#contact-form', 
-         'Z4owR3nI7UkyjmGMe').
-         then(
-  () => {
-    message.classList.add('color-first');
-    message.textContent='Message sent successfully';
-    setTimeout(() => {
-      message.textContent='';
-    }, 5000);
-  },
-  (error) => {
-    alert('OOPS! Something has failed...', error);
-    }
-  );
-  contactName.value='';
-  contactEmail.value='';
-  contactSubject.value='';
-  contactMessage.value='';
-}
-}
 
-contactForm.addEventListener('submit',sendEmail);
+  if (
+    contactName.value === '' ||
+    contactEmail.value === '' ||
+    contactSubject.value === '' ||
+    contactMessage.value === ''
+  ) {
+    message.classList.remove('color-first');
+    message.classList.add('color-red');
+    message.textContent = 'Write all the input fields';
+    setTimeout(() => {
+      message.textContent = '';
+    }, 3000);
+    return;
+  }
+
+  emailjs.sendForm('service_9ywvz2h', 'template_g6x1l3p', '#contact-form', 'Z4owR3nI7UkyjmGMe')
+    .then(() => {
+      message.classList.remove('color-red');
+      message.classList.add('color-first');
+      message.textContent = 'Message sent successfully!';
+      contactForm.reset(); // Reset form fields
+      setTimeout(() => {
+        message.textContent = '';
+      }, 5000);
+    })
+    .catch((error) => {
+      alert('OOPS! Something went wrong...', error);
+    });
+};
+
+contactForm.addEventListener('submit', sendEmail);
+
 
 const scrollHeader=() => {
   const header=document.getElementById('header');
@@ -167,5 +163,4 @@ const scrollActive= () => {
     }
   })
 }
-
 window.addEventListener('scroll',scrollActive)
